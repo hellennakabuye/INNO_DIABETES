@@ -1,0 +1,9 @@
+numpy
+reportlab
+requests
+scikit-learn
+SciPy
+seaborn
+matplotlib
+streamlit
+pandas==2.2
