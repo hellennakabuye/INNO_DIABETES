@@ -10,7 +10,7 @@ with col2:
     st.image("sukaali.png", width=500)
 
 #st.image("sukaali.png", width=450)
-st.set_page_config(page_title="Diabetes Risk Predictor", layout="centered")
+st.set_page_config(page_title="SukaaliCheck", layout="centered")
 st.sidebar.image("type2.png")
 st.sidebar.title("About Diabetes")
 st.sidebar.markdown('<a href="https://idf.org/our-network/regions-and-members/africa/members/uganda/" target="_blank">Diabetes in Uganda</a>',
