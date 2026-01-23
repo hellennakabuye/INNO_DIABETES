@@ -8,4 +8,5 @@ matplotlib
 streamlit
 pandas==2.2
 datetime
+xgboost
 
