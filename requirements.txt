@@ -9,4 +9,5 @@ streamlit
 pandas==2.2
 datetime
 xgboost
-
+gspread
+google-auth
