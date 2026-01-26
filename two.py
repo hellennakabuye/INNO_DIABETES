@@ -199,7 +199,7 @@ creds = Credentials.from_service_account_info(
 )
 
 client = gspread.authorize(creds)
-sheet = client.open("SukaaliCheck_User_Data").worksheet("data")
+sheet = client.open("AllerSafe_User_Data").worksheet("data")
 
 def save_user_input(age, sex, bmi, pa, fh, ht, diet, glucose, risk):
     sheet.append_row([
