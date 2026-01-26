@@ -258,6 +258,9 @@ if st.button("Predict Diabetes Risk"):
     )
     log_user_entry(user_data, result)
 
+st.write("Current directory:", os.getcwd())
+st.write("Files here:", os.listdir())
+
 
 
 
