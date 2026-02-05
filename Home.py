@@ -247,4 +247,4 @@ if st.button("Predict Diabetes Risk"):
 st.write(" ")
 st.markdown("*This Tool is AI-powered and does not replace professional medical opinions*")
 st.write(" ")
-st.markdown("***Thank You For Using SukaaliCheck!***")
+st.markdown("<p style='text-align: center; color: green;'>***Thank You For Using SukaaliCheck!***")
