@@ -244,7 +244,7 @@ if st.button("Predict Diabetes Risk"):
         file_name="SukaaliCheck_Diabetes_Report.pdf",
         mime="application/pdf"
     )
-
+st.write(" ")
 st.markdown("*This Tool is AI-powered and does not replace professional medical opinions*")
 st.write(" ")
 st.markdown("***Thank You For Using SukaaliCheck!***")
