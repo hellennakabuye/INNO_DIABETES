@@ -245,6 +245,6 @@ if st.button("Predict Diabetes Risk"):
         mime="application/pdf"
     )
 
-st.markdown("<i>This Tool is AI-powered and does not replace professional medical opinions</i>")
+st.markdown("*This Tool is AI-powered and does not replace professional medical opinions*")
 st.write(" ")
-st.markdown("Thank You For Using SukaaliCheck")
+st.markdown("***Thank You For Using SukaaliCheck!***")
