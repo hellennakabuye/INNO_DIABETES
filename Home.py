@@ -14,46 +14,59 @@ from google.oauth2.service_account import Credentials
 st.set_page_config(page_title="SukaaliCheck", layout="centered")
 
 # ---------------- HEADER ----------------
+# Load image
 col1, col2, col3 = st.columns([1, 2, 1])
+
 with col2:
-    st.image("sukaali.png", width=450)
+    st.image("sukaali.png", width=500)
+
+st.markdown(
+    "<div style='text-align:center; font-size:18px; color:#333; font-weight: bold; font-style: italic;'>"
+    "Predict your Type II Diabetes Risk in Seconds"
+    "</div>",
+    unsafe_allow_html=True
+)
 
 # ---------------- SIDEBAR ----------------
 st.sidebar.image("type2.png")
-st.sidebar.title("About Diabetes")
+st.sidebar.title("📖 About Diabetes")
 
 st.sidebar.markdown(
-    '<a href="https://idf.org/our-network/regions-and-members/africa/members/uganda/" target="_blank">'
-    'Diabetes in Uganda</a>',
-    unsafe_allow_html=True
+    "Diabetes is a chronic disease that occurs when the body cannot properly process glucose."
 )
 
+st.sidebar.markdown("### 🌐 Useful Links")
 st.sidebar.markdown(
-    '<a href="https://makir.mak.ac.ug/items/6b129844-bd56-4a05-81f8-7e1b3996a9e5" target="_blank">'
-    'Diabetes Risk Factors</a>',
+    '<a href="https://idf.org/our-network/regions-and-members/africa/members/uganda/" target="_blank">Diabetes in Uganda</a><br>'
+    '<a href="https://makir.mak.ac.ug/items/6b129844-bd56-4a05-81f8-7e1b3996a9e5" target="_blank">Diabetes Risk Factors</a>',
     unsafe_allow_html=True
 )
 
-st.sidebar.image("main.png")
-
-st.sidebar.write(
-    '**Contact Us:**<br>**hellennakabuye23@gmail.com**',
-    unsafe_allow_html=True
-)
+# st.sidebar.image("main.png")
+st.sidebar.markdown("### 📧 Contact")
+st.sidebar.markdown('<a href="mailto:hellennakabuye23@gmail.com">hellennakabuye23@gmail.com</a>', unsafe_allow_html=True)
 
 # ---------------- MAIN TITLE ----------------
 st.title("🩺 Type II Diabetes Risk Predictor")
-st.write("Enter the details below to estimate your risk of diabetes.")
+#st.write("Enter the details below to estimate your risk of diabetes.")
+
+st.markdown(
+    '<div style="background-color:#e6f2ff; padding:10px; border-radius:5px;">'
+    'Enter your details below to estimate your Type II Diabetes risk.'
+    '</div>',
+    unsafe_allow_html=True
+)
+
 
 # ---------------- INPUT FIELDS ----------------
-age = st.number_input("Age", min_value=1, max_value=100, value=35)
-sex = st.selectbox("Sex", ["Male", "Female"])
-bmi = st.number_input("BMI", min_value=10.0, max_value=60.0, value=25.0)
+col1, col2 = st.columns(2)
+with col1:
+    age = st.number_input("Age", min_value=1, max_value=100, value=35)
+    sex = st.selectbox("Sex", ["Male", "Female"])
+with col2:
+    bmi = st.number_input("BMI", min_value=10.0, max_value=60.0, value=25.0)
+    physical_activity = st.selectbox("Physical Activity Level", ["Low", "Moderate", "High"])
 
-physical_activity = st.selectbox(
-    "Physical Activity Level",
-    ["Low", "Moderate", "High"]
-)
 
 family_history = st.selectbox(
     "Family History of Diabetes",
@@ -239,12 +252,15 @@ if st.button("Predict Diabetes Risk"):
     pdf = generate_pdf_report(user_data, result)
 
     st.download_button(
-        "📄 Download PDF Report",
+        "📄 Download Your Diabetes Risk Report",
         data=pdf,
         file_name="SukaaliCheck_Diabetes_Report.pdf",
-        mime="application/pdf"
+        mime="application/pdf",
+        key="download-pdf",
+        use_container_width=True
     )
+
 st.write(" ")
 st.markdown("*This Tool is AI-powered and does not replace professional medical opinions*")
 st.write(" ")
-st.markdown("<p style='text-align: center; color: green;'>***Thank You For Using SukaaliCheck!***")
+st.markdown("<p style='text-align:center; font-size:18px; color:#333; font-weight: bold; font-style: italic; color: green;'>Thank You For Using SukaaliCheck!")
