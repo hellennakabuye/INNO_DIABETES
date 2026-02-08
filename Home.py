@@ -57,37 +57,100 @@ st.markdown(
     unsafe_allow_html=True
 )
 
+# ---------------- LANGUAGE SUPPORT ----------------
+# ---------------- LANGUAGE SUPPORT ----------------
+language = st.selectbox(
+    "Language / Olulimi",
+    ["English", "Luganda"]
+)
+
+TEXT = {
+    "English": {
+        "tagline": "Predict your Type II Diabetes Risk in Seconds",
+        "intro": "Enter your details below to estimate your Type II Diabetes risk.",
+
+        "age": "Age",
+        "sex": "Sex",
+        "male": "Male",
+        "female": "Female",
+        "bmi": "BMI",
+        "pa": "Physical Activity Level",
+        "fh": "Family History of Diabetes",
+        "ht": "Hypertension",
+        "diet": "Diet Quality Score (0 = Poor, 10 = Excellent)",
+        "glucose": "Fasting Blood Glucose (mg/dL)",
+
+        "predict": "Predict Diabetes Risk",
+        "download": "📄 Download Your Diabetes Risk Report",
+
+        "low": "🟢 Low Diabetes Risk",
+        "intermediate": "🟡 Intermediate Diabetes Risk",
+        "high": "🔴 High Diabetes Risk",
+
+        "low_msg": "Maintain healthy lifestyle and regular checkups.",
+        "int_msg": "Consider lifestyle improvements and medical screening.",
+        "high_msg": "Seek medical evaluation as soon as possible."
+    },
+
+    "Luganda": {
+        "tagline": "Kebera Obulabe bwa Sukaali mu Biseera Bitono",
+        "intro": "Yingiza ebikwata ku bulamu bwo okukebera obulabe bwa Sukaali.",
+
+        "age": "Emyaka",
+        "sex": "Obutonde",
+        "male": "Omusajja",
+        "female": "Omukazi",
+        "bmi": "Obuzito Ku Buwanvu (BMI)",
+        "pa": "Omuwendo gwa Dduyiro",
+        "fh": "Obulwadde bwa Sukaali mu Kika",
+        "ht": "Puleesa",
+        "diet": "Endya yo (0 = Mbi, 10 = Nnungi)",
+        "glucose": "Sukaali mu Musaayi(mg/dL)",
+
+        "predict": "Kebera Obulabe bwa Sukaali",
+        "download": "📄 Funa Lipoota yo eya Sukaali",
+
+        "low": "🟢 Obulabe Butono",
+        "intermediate": "🟡 Obulabe wakati",
+        "high": "🔴 Obulabe Bungi",
+
+        "low_msg": "Genda mu maaso n'obulamu obulungi n'okwekebeera bulijjo.",
+        "int_msg": "Kyetaagisa okukyusa ku mpisa z'obulamu n'okukebeerwa kw'omusawo.",
+        "high_msg": "Kyetaagisa okulaba omusawo mangu ddala."
+    }
+}
+
+t = TEXT[language]
+
+# ---------------- INPUT FIELDS ----------------
 
 # ---------------- INPUT FIELDS ----------------
 col1, col2 = st.columns(2)
-with col1:
-    age = st.number_input("Age", min_value=1, max_value=100, value=35)
-    sex = st.selectbox("Sex", ["Male", "Female"])
-with col2:
-    bmi = st.number_input("BMI", min_value=10.0, max_value=60.0, value=25.0)
-    physical_activity = st.selectbox("Physical Activity Level", ["Low", "Moderate", "High"])
 
+with col1:
+    age = st.number_input(t["age"], min_value=1, max_value=100, value=35)
+    sex = st.selectbox(t["sex"], [t["male"], t["female"]])
+
+with col2:
+    bmi = st.number_input(t["bmi"], min_value=10.0, max_value=60.0, value=25.0)
+    physical_activity = st.selectbox(
+        t["pa"], ["Low", "Moderate", "High"]
+    )
 
 family_history = st.selectbox(
-    "Family History of Diabetes",
-    ["No", "Yes"]
+    t["fh"], ["No", "Yes"]
 )
 
 hypertension = st.selectbox(
-    "Hypertension",
-    ["No", "Yes"]
+    t["ht"], ["No", "Yes"]
 )
 
 diet_score = st.slider(
-    "Diet Quality Score (0 = Poor, 10 = Excellent)",
-    0, 10, 5
+    t["diet"], 0, 10, 5
 )
 
 blood_glucose = st.number_input(
-    "Fasting Blood Glucose (mg/dL)",
-    min_value=50.0,
-    max_value=300.0,
-    value=100.0
+    t["glucose"], min_value=50.0, max_value=300.0, value=100.0
 )
 
 st.markdown("---")
@@ -151,9 +214,9 @@ def generate_pdf_report(user_data, result):
     ))
 
     advice = {
-        "Low": "Maintain a healthy lifestyle and regular checkups.",
-        "Intermediate": "Consider lifestyle improvements and medical screening.",
-        "High": "Seek medical evaluation as soon as possible."
+        "Low": t["low_msg"],
+        "Intermediate": t["int_msg"],
+        "High": t["high_msg"]
     }
 
     elements.append(Spacer(1, 10))
@@ -228,11 +291,14 @@ if st.button("Predict Diabetes Risk"):
     result = risk_map[prediction]
 
     if result == "Low":
-        st.success("🟢 Low Diabetes Risk")
+        st.success(t["low"])
+        st.write(t["low_msg"])
     elif result == "Intermediate":
-        st.warning("🟡 Intermediate Diabetes Risk")
+        st.warning(t["intermediate"])
+        st.write(t["int_msg"])
     else:
-        st.error("🔴 High Diabetes Risk")
+        st.error(t["high"])
+        st.write(t["high_msg"])
 
     user_data = {
         "Age": age,
@@ -260,12 +326,3 @@ if st.button("Predict Diabetes Risk"):
         use_container_width=True
     )
 
-st.write(" ")
-#st.markdown("*This Tool is AI-powered and does not replace professional medical opinions*")
-st.write(" ")
-st.markdown(
-    "<div style='text-align:center; color:#9ACD32; font-size:18px; font-weight: bold; font-style: italic;'>"
-    "This Tool is AI-powered and does not replace Professional Medical Opinions"
-    "</div>",
-    unsafe_allow_html=True
-)
