@@ -9,15 +9,22 @@ import joblib
 st.set_page_config(page_title="Recommended Exercises", layout="centered")
 st.title("🏃‍♀️Expert Recommended Exercises")
 
+st.sidebar.title("📖 About Diabetes")
+
+st.sidebar.markdown(
+    "Diabetes is a chronic disease that occurs when the body cannot properly process glucose."
+)
 st.sidebar.image("sukaali.png")
-st.sidebar.title("About Diabetes")
-st.sidebar.markdown('<a href="https://idf.org/our-network/regions-and-members/africa/members/uganda/" target="_blank">Diabetes in Uganda</a>',
-            unsafe_allow_html=True)
-st.sidebar.markdown('<a href="https://makir.mak.ac.ug/items/6b129844-bd56-4a05-81f8-7e1b3996a9e5" target="_blank">Diabetes Risk Factors</a>',
-            unsafe_allow_html=True)
-st.sidebar.image("type2.png")
-st.sidebar.write('**Contact Us:**<br>'
-                 '**hellennakabuye23@gmail.com**', unsafe_allow_html=True)
+
+st.sidebar.markdown("### 🌐 Useful Links")
+st.sidebar.markdown(
+    '<a href="https://idf.org/our-network/regions-and-members/africa/members/uganda/" target="_blank">Diabetes in Uganda</a><br>'
+    '<a href="https://idf.org/about-diabetes/diabetes-management/physical-activity/" target="_blank">Diabetes & Exercise</a>',
+    unsafe_allow_html=True
+)
+
+st.sidebar.markdown("### 📧 Contact")
+st.sidebar.markdown('<a href="mailto:hellennakabuye23@gmail.com">hellennakabuye23@gmail.com</a>', unsafe_allow_html=True)
 
 st.markdown('**Guidelines:** Aim for 150 minutes per week, Daily movements, reduce sitting, Atleast 2 days of strength training per week<br>'
             '<br>'
