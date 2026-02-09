@@ -8,16 +8,22 @@ from PIL import Image
 st.set_page_config(page_title="Recommended Diet", layout="centered")
 st.title("🍏Expert Recommended Diet")
 
-st.sidebar.image("sukaali.png")
-st.sidebar.title("About Diabetes")
-st.sidebar.markdown('<a href="https://idf.org/our-network/regions-and-members/africa/members/uganda/" target="_blank">Diabetes in Uganda</a>',
-            unsafe_allow_html=True)
-st.sidebar.markdown('<a href="https://makir.mak.ac.ug/items/6b129844-bd56-4a05-81f8-7e1b3996a9e5" target="_blank">Diabetes Risk Factors</a>',
-            unsafe_allow_html=True)
-st.sidebar.image("type2.png")
+st.sidebar.title("📖 About Diabetes")
 
-st.sidebar.write('**Contact Us:**<br>'
-                 '**hellennakabuye23@gmail.com**', unsafe_allow_html=True)
+st.sidebar.markdown(
+    "Diabetes is a chronic disease that occurs when the body cannot properly process glucose."
+)
+st.sidebar.image("sukaali.png")
+
+st.sidebar.markdown("### 🌐 Useful Links")
+st.sidebar.markdown(
+    '<a href="https://idf.org/our-network/regions-and-members/africa/members/uganda/" target="_blank">Diabetes in Uganda</a><br>'
+    '<a href="https://medlineplus.gov/diabeticdiet.html" target="_blank">Diabetes & Diet</a>',
+    unsafe_allow_html=True
+)
+
+st.sidebar.markdown("### 📧 Contact")
+st.sidebar.markdown('<a href="mailto:hellennakabuye23@gmail.com">hellennakabuye23@gmail.com</a>', unsafe_allow_html=True)
 
 
 st.markdown('**Diet Guidelines:** low added sugar, high fiber, balanced carbs, lean proteins, and healthy fats.<br>'
