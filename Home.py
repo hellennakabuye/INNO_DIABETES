@@ -50,14 +50,8 @@ st.sidebar.markdown('<a href="mailto:hellennakabuye23@gmail.com">hellennakabuye2
 st.title("🩺 Type II Diabetes Risk Predictor")
 #st.write("Enter the details below to estimate your risk of diabetes.")
 
-st.markdown(
-    '<div style="background-color:#e6f2ff; padding:10px; border-radius:5px;">'
-    'Enter your details below to estimate your Type II Diabetes risk.'
-    '</div>',
-    unsafe_allow_html=True
-)
+st.info("Enter your details below to estimate your Type II Diabetes risk.")
 
-# ---------------- LANGUAGE SUPPORT ----------------
 # ---------------- LANGUAGE SUPPORT ----------------
 language = st.selectbox(
     "Language / Olulimi",
@@ -123,8 +117,6 @@ TEXT = {
 t = TEXT[language]
 
 # ---------------- INPUT FIELDS ----------------
-
-# ---------------- INPUT FIELDS ----------------
 col1, col2 = st.columns(2)
 
 with col1:
@@ -154,7 +146,6 @@ blood_glucose = st.number_input(
 )
 
 st.markdown("---")
-
 
 # ---------------- PDF GENERATION ----------------
 def generate_pdf_report(user_data, result):
@@ -233,6 +224,7 @@ def generate_pdf_report(user_data, result):
     return buffer
 
 # ---------------- GOOGLE SHEETS ----------------
+
 if "gcp_service_account" not in st.secrets:
     st.error("Google credentials not configured.")
     st.stop()
@@ -256,11 +248,11 @@ def save_user_input(age, sex, bmi, pa, fh, ht, diet, glucose, risk):
         age, sex, bmi, pa, fh, ht, diet, glucose, risk
     ])
 
-# ---------------- PREDICTION ----------------
-
 # ---------------- LOAD MODEL ----------------
 model = joblib.load("SdiabetesRF.pkl")
 feature_columns = joblib.load("feature_columns.pkl")
+
+# ---------------- PREDICTION ----------------
 
 if st.button("Predict Diabetes Risk"):
 
