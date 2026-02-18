@@ -78,7 +78,7 @@ TEXT = {
         "fh": "Family History of Diabetes",
         "ht": "Hypertension",
         "diet": "Diet Quality Score (0 = Poor, 10 = Excellent)",
-        "glucose": "Fasting Blood Glucose (mg/dL)",
+        "glucose": "Blood Glucose (mg/dL)",
 
         "predict": "Predict Diabetes Risk",
         "download": "📄 Download Your Diabetes Risk Report",
@@ -191,7 +191,7 @@ def generate_pdf_report(user_data, result):
         ["Family History", user_data["Family History"], "No"],
         ["Hypertension", user_data["Hypertension"], "No"],
         ["Diet Score", user_data["Diet Score"], "≥ 7 / 10"],
-        ["Fasting Blood Glucose", user_data["Blood Glucose"], "70 – 99 mg/dL"],
+        ["Blood Glucose", user_data["Blood Glucose"], "70 – 99 mg/dL"],
     ]
 
     table = Table(table_data, colWidths=[170, 120, 170])
