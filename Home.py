@@ -117,29 +117,59 @@ TEXT = {
 t = TEXT[language]
 
 # ---------------- INPUT FIELDS ----------------
+st.subheader("Patient Information")
+
 col1, col2 = st.columns(2)
 
 with col1:
     age = st.number_input(t["age"], min_value=1, max_value=100, value=35)
-    sex = st.selectbox(t["sex"], [t["male"], t["female"]])
 
 with col2:
-    bmi = st.number_input(t["bmi"], min_value=10.0, max_value=60.0, value=25.0)
-    physical_activity = st.selectbox(
-        t["pa"], ["Low", "Moderate", "High"]
-    )
+    sex = st.selectbox(t["sex"], [t["male"], t["female"]])
 
-family_history = st.selectbox(
-    t["fh"], ["No", "Yes"]
+st.divider()
+
+st.subheader("Body Measurements")
+
+col1, col2 = st.columns(2)
+with col1:
+    weight = st.number_input("Weight (kg)", min_value=20.0, max_value=200.0, value=70.0)
+
+with col2:
+    height = st.number_input("Height (cm)", min_value=100.0, max_value=220.0, value=170.0)
+
+height_m = height / 100
+bmi = weight / (height_m ** 2)
+
+st.number_input(
+    "BMI (Auto Calculated)",
+    value=float(f"{bmi:.2f}"),
+    disabled=True
 )
+st.divider()
+st.subheader("Medical History")
 
-hypertension = st.selectbox(
-    t["ht"], ["No", "Yes"]
+col1, col2 = st.columns(2)
+
+with col1:
+    family_history = st.selectbox(t["fh"], ["No", "Yes"])
+
+with col2:
+    hypertension = st.selectbox(t["ht"], ["No", "Yes"])
+
+st.divider()
+st.subheader("Lifestyle")
+
+physical_activity = st.selectbox(
+    t["pa"], ["Low", "Moderate", "High"]
 )
 
 diet_score = st.slider(
     t["diet"], 0, 10, 5
 )
+
+st.divider()
+st.subheader("Blood Test")
 
 blood_glucose = st.number_input(
     t["glucose"], min_value=50.0, max_value=300.0, value=100.0
