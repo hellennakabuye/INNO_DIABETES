@@ -24,7 +24,7 @@ st.sidebar.markdown(
 )
 
 st.sidebar.markdown("### 📧 Contact")
-st.sidebar.markdown('<a href="mailto:hellennakabuye23@gmail.com">hellennakabuye23@gmail.com</a>', unsafe_allow_html=True)
+st.sidebar.markdown('<a href="mailto:sukaalicheckug@gmail.com">sukaalicheckug@gmail.com</a>', unsafe_allow_html=True)
 
 st.markdown('**Guidelines:** Aim for 150 minutes per week, Daily movements, reduce sitting, Atleast 2 days of strength training per week<br>'
             '<br>'
