@@ -67,6 +67,8 @@ TEXT = {
         "sex": "Sex",
         "male": "Male",
         "female": "Female",
+        "weight": "Weight (kg)",
+        "height": "Height(cm)",
         "bmi": "BMI",
         "pa": "Physical Activity Level",
         "fh": "Family History of Diabetes",
@@ -82,7 +84,7 @@ TEXT = {
         "high": "🔴 High Diabetes Risk",
 
         "low_msg": "Maintain healthy lifestyle and regular checkups.",
-        "int_msg": "Consider lifestyle improvements and further medical checkup.",
+        "int_msg": "Consider lifestyle improvements and medical screening.",
         "high_msg": "Seek medical evaluation as soon as possible."
     },
 
@@ -94,6 +96,8 @@ TEXT = {
         "sex": "Obutonde",
         "male": "Omusajja",
         "female": "Omukazi",
+        "weight": "Obuzito (kg)",
+        "height": "Obuwanvu (cm)",
         "bmi": "Obuzito Ku Buwanvu (BMI)",
         "pa": "Omuwendo gwa Dduyiro",
         "fh": "Obulwadde bwa Sukaali mu Kika",
@@ -133,10 +137,10 @@ st.subheader("Body Measurements")
 
 col1, col2 = st.columns(2)
 with col1:
-    weight = st.number_input("Weight (kg)", min_value=20.0, max_value=200.0, value=70.0)
+    weight = st.number_input(t["weight"], min_value=20.0, max_value=200.0, value=70.0)
 
 with col2:
-    height = st.number_input("Height (cm)", min_value=100.0, max_value=220.0, value=170.0)
+    height = st.number_input(t["height"], min_value=100.0, max_value=220.0, value=170.0)
 
 height_m = height / 100
 bmi = weight / (height_m ** 2)
