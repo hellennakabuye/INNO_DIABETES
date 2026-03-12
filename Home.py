@@ -44,7 +44,7 @@ st.sidebar.markdown(
 
 # st.sidebar.image("main.png")
 st.sidebar.markdown("### 📧 Contact")
-st.sidebar.markdown('<a href="mailto:hellennakabuye23@gmail.com">hellennakabuye23@gmail.com</a>', unsafe_allow_html=True)
+st.sidebar.markdown('<a href="mailto:sukaalicheckug@gmail.com">sukaalicheckug@gmail.com</a>', unsafe_allow_html=True)
 
 # ---------------- MAIN TITLE ----------------
 st.title("🩺 Type II Diabetes Risk Predictor")
@@ -215,7 +215,7 @@ def generate_pdf_report(user_data, result):
 
     elements.append(Spacer(1, 15))
     elements.append(Paragraph(
-        "<i>This report is AI-generated and does not replace professional medical advice.</i>",
+        "<i>This result and report is AI-generated and does not replace professional medical advice.</i>",
         styles["Normal"]
     ))
 
