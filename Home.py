@@ -82,7 +82,7 @@ TEXT = {
         "high": "🔴 High Diabetes Risk",
 
         "low_msg": "Maintain healthy lifestyle and regular checkups.",
-        "int_msg": "Consider lifestyle improvements and medical screening.",
+        "int_msg": "Consider lifestyle improvements and further medical checkup.",
         "high_msg": "Seek medical evaluation as soon as possible."
     },
 
