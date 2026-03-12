@@ -23,7 +23,7 @@ st.sidebar.markdown(
 )
 
 st.sidebar.markdown("### 📧 Contact")
-st.sidebar.markdown('<a href="mailto:hellennakabuye23@gmail.com">hellennakabuye23@gmail.com</a>', unsafe_allow_html=True)
+st.sidebar.markdown('<a href="mailto:sukaalicheckug@gmail.com">sukaalicheckug@gmail.com</a>', unsafe_allow_html=True)
 
 
 st.markdown('**Diet Guidelines:** low added sugar, high fiber, balanced carbs, lean proteins, and healthy fats.<br>'
