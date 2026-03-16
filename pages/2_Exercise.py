@@ -5,6 +5,53 @@ import base64
 from PIL import Image
 import joblib
 
+# ---------------- ACCESS CONTROL ---------------- #
+
+# List of authorized organizations
+# You update this after payment
+AUTHORIZED_ORGS = {
+    "6wner": "2027-02-20",
+    "ZXCVF": "2026-06-30",
+    "ERTTY": "2026-03-01"
+}
+
+# Get organization from URL
+query_params = st.query_params
+org = query_params.get("org")
+
+if not org:
+    # Load image
+    col1, col2, col3 = st.columns(3)
+
+    with col2:
+        st.image("sukaali.png", width=500)
+
+    st.error("🔒 Access Restricted")
+    st.markdown(
+    'This tool is licensed to partner health organizations.<br>'
+    '<br>'
+    'If you represent a clinic, Researcher or NGO, please contact:<br>'
+    '<br>'
+    '📧 sukaalicheckug@gmail.com<br>'
+    '📞 +256 703145793',unsafe_allow_html=True
+
+    )
+    st.subheader("Thank You For Visiting SukaaliCheck!")
+    st.stop()
+
+if org not in AUTHORIZED_ORGS:
+    st.error("🚫 Organization Not Authorized")
+    st.stop()
+
+expiry_date = datetime.strptime(AUTHORIZED_ORGS[org], "%Y-%m-%d")
+
+if datetime.now() > expiry_date:
+    st.error("⛔ Subscription Expired")
+    st.markdown("Please renew your institutional subscription.")
+    st.stop()
+
+# If all checks pass:
+st.success(f"✅ Licensed Access: {org.replace('_', ' ').title()}")
 
 st.set_page_config(page_title="Recommended Exercises", layout="centered")
 st.title("🏃‍♀️Expert Recommended Exercises")
