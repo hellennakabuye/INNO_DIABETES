@@ -10,6 +10,10 @@ from datetime import datetime
 import gspread
 from google.oauth2.service_account import Credentials
 
+st.markdown("""
+<link rel="manifest" href="/manifest.json">
+""", unsafe_allow_html=True)
+
 # ---------------- PAGE CONFIG (MUST BE FIRST) ----------------
 st.set_page_config(page_title="SukaaliCheck", layout="centered")
 
