@@ -15,7 +15,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ---------------- PAGE CONFIG (MUST BE FIRST) ----------------
-st.set_page_config(page_title="SukaaliCheck", layout="centered")
+st.set_page_config(page_title="SukaaliCheck", page_icon="🩺", layout="centered")
 
 # ---------------- HEADER ----------------
 # Load image
