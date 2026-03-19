@@ -287,7 +287,7 @@ def save_user_input(age, sex, bmi, pa, fh, ht, diet, glucose, risk):
     ])
 
 # ---------------- LOAD MODEL ----------------
-model = joblib.load("random_diabetesRF.pkl")
+model = joblib.load("SdiabetesRF.pkl")
 feature_columns = joblib.load("feature_columns.pkl")
 
 # ---------------- PREDICTION ----------------
