@@ -220,7 +220,7 @@ def generate_pdf_report(user_data, result):
         ["Family History", user_data["Family History"], "No"],
         ["Hypertension", user_data["Hypertension"], "No"],
         ["Diet Score", user_data["Diet Score"], "≥ 7 / 10"],
-        ["Blood Glucose", user_data["Blood Glucose"], "90 – 140 mg/dL 1-2 hours after a meal"],
+        ["Random Blood Glucose", user_data["Blood Glucose"], "90 – 140 mg/dL 1-2 hours after a meal"],
     ]
 
     table = Table(table_data, colWidths=[170, 120, 170])
