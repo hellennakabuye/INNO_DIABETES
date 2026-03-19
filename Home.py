@@ -88,7 +88,7 @@ TEXT = {
         "high": "🔴 High Diabetes Risk",
 
         "low_msg": "Maintain healthy lifestyle and regular checkups.",
-        "int_msg": "Consider lifestyle improvements and medical screening.",
+        "int_msg": "Consider lifestyle improvements and routine medical check-ups.",
         "high_msg": "Seek medical evaluation as soon as possible."
     },
 
@@ -287,7 +287,7 @@ def save_user_input(age, sex, bmi, pa, fh, ht, diet, glucose, risk):
     ])
 
 # ---------------- LOAD MODEL ----------------
-model = joblib.load("SdiabetesRF.pkl")
+model = joblib.load("random_diabetesRF.pkl")
 feature_columns = joblib.load("feature_columns.pkl")
 
 # ---------------- PREDICTION ----------------
